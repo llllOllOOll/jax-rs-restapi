@@ -1,9 +1,15 @@
 package com.seven.api.client;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Client {
+  @JsonProperty("id")
   private Long id;
+  @JsonProperty("name")
   private String name;
+  @JsonProperty("email")
   private String email;
+  @JsonProperty("phone")
   private String phone;
 
   public Client(Long id, String name, String email, String phone) {
