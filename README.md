@@ -5,7 +5,7 @@ This project is a Java EE 8 application using JAX-RS for RESTful web services, a
 ## Prerequisites
 
 - **Apache Maven 3.6.3**
-- **Java 1.8 (OpenJDK 8)**
+- **Java 17 (OpenJDK 17)**
 - **Eclipse J22 2025-6-R**
 
 ## Project Setup
@@ -51,7 +51,7 @@ mvn package
 To run the application using Jetty, execute:
 
 ```bash
-mvn jetty:run
+mvn wildfly:run
 
 
 ## Application Availability
@@ -61,78 +61,25 @@ The application will be available at [http://localhost:8080/](http://localhost:8
 ## Endpoints
 
 
-Endpoints
+
 Create a Client
+
 Endpoint: POST /clients
 Request:
-bash
-Copy code
-curl -X POST http://localhost:8080/clients \
-     -H "Content-Type: application/json" \
-     -d '{"id": 1, "name": "John Doe", "email": "john.doe@example.com"}'
-Response:
-json
-Copy code
-{
-  "id": 1,
-  "name": "John Doe",
-  "email": "john.doe@example.com"
-}
-Get a Client
-Endpoint: GET /clients/{id}
-Request:
-bash
-Copy code
-curl -X GET http://localhost:8080/clients/1
-Response:
-json
-Copy code
-{
-  "id": 1,
-  "name": "John Doe",
-  "email": "john.doe@example.com"
-}
-Update a Client
-Endpoint: PUT /clients/{id}
-Request:
-bash
-Copy code
-curl -X PUT http://localhost:8080/clients/1 \
-     -H "Content-Type: application/json" \
-     -d '{"name": "John Smith", "email": "john.smith@example.com"}'
-Response:
-json
-Copy code
-{
-  "id": 1,
-  "name": "John Smith",
-  "email": "john.smith@example.com"
-}
-Delete a Client
-Endpoint: DELETE /clients/{id}
-Request:
-bash
-Copy code
-curl -X DELETE http://localhost:8080/clients/1
-Response: 204 No Content
-Get All Clients
-Endpoint: GET /clients
-Request:
-bash
-Copy code
-curl -X GET http://localhost:8080/clients
-Response:
-json
-Copy code
-[
-  {
-    "id": 1,
-    "name": "John Smith",
-    "email": "john.smith@example.com"
-  }
-]
-Dependencies
-Apache Maven 3.6.3
-Jersey 2.23
-Notes
-Ensure your Maven and Jersey versions match the ones specified above for compatibility.
+
+```bash
+curl -X POST http://localhost:8080/webapp/api/clients      -H "Content-Type: application/json"      -d '{"id": 1, "name": "John Doe", "email": "john.doe@example.com"}'
+```
+```bash
+ curl -X GET http://localhost:8080/webapp/api/clients/1
+```
+
+```bash
+ curl -X GET http://localhost:8080/webapp/api/clients
+  ```
+```bash
+curl -X PUT http://localhost:8080/webapp/api/clients/1      -H "Content-Type: application/json"      -d '{"name": "John Smith", "email": "john.smith@example.com"}'
+```
+```bash
+curl -X DELETE http://localhost:8080/webapp/api/clients/1
+```
